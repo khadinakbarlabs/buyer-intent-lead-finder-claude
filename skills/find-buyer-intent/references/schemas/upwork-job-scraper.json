@@ -1,0 +1,111 @@
+{
+  "type": "object",
+  "properties": {
+    "searchQueries": {
+      "title": "Search keywords",
+      "type": "array",
+      "description": "List of keyword queries to search on Upwork Jobs (e.g. ['react developer', 'shopify expert']). Each query is sent through the managed authenticated Upwork access route. Leave empty if you pass startUrls instead.",
+      "default": [],
+      "items": {
+        "type": "string"
+      }
+    },
+    "startUrls": {
+      "title": "Upwork search URLs",
+      "type": "array",
+      "description": "Direct Upwork job-search URLs (must include nx/search/jobs, e.g. https://www.upwork.com/nx/search/jobs/?q=python&sort=recency). Compatible with searchQueries.",
+      "default": [],
+      "items": {
+        "type": "object",
+        "required": [
+          "url"
+        ],
+        "properties": {
+          "url": {
+            "type": "string",
+            "title": "URL of a web page",
+            "format": "uri"
+          }
+        }
+      }
+    },
+    "maxResults": {
+      "title": "Max jobs to return",
+      "minimum": 1,
+      "maximum": 1000,
+      "type": "integer",
+      "description": "Hard cap on total jobs pushed AND charged across all queries/URLs. Stops the run once reached. Range 1-1000. Default 50. Quality prefill uses 10.",
+      "default": 50
+    },
+    "maxPagesPerQuery": {
+      "title": "Max pages per query",
+      "minimum": 1,
+      "maximum": 20,
+      "type": "integer",
+      "description": "How many result pages to crawl per search query (~50 jobs/page when Upwork serves a full page). Range 1-20. Default 1 for reliability; raise for deeper crawls.",
+      "default": 1
+    },
+    "sortBy": {
+      "title": "Sort order",
+      "enum": [
+        "recency",
+        "relevance"
+      ],
+      "type": "string",
+      "description": "Result sort: 'recency' = newest first (recommended for monitoring), 'relevance' = Upwork relevance algorithm.",
+      "default": "recency"
+    },
+    "jobType": {
+      "title": "Job type filter",
+      "enum": [
+        "all",
+        "hourly",
+        "fixed"
+      ],
+      "type": "string",
+      "description": "Filter by contract type. 'all' = no filter, 'hourly' = hourly contracts only, 'fixed' = fixed-price only.",
+      "default": "all"
+    },
+    "experienceLevel": {
+      "title": "Experience level",
+      "enum": [
+        "all",
+        "entry",
+        "intermediate",
+        "expert"
+      ],
+      "type": "string",
+      "description": "Filter by required contractor tier. 'all' = no filter, 'entry' = entry level, 'intermediate' = intermediate, 'expert' = expert.",
+      "default": "all"
+    },
+    "paymentVerified": {
+      "title": "Payment-verified clients only",
+      "type": "boolean",
+      "description": "If true, only return jobs from clients with Upwork-verified payment method. Filters out low-quality / risky postings.",
+      "default": false
+    },
+    "minHourlyRate": {
+      "title": "Min hourly rate (USD)",
+      "minimum": 0,
+      "maximum": 500,
+      "type": "integer",
+      "description": "Only return hourly jobs at or above this rate. Ignored for fixed-price jobs. Leave empty for no filter."
+    },
+    "minClientSpend": {
+      "title": "Min client total spend",
+      "enum": [
+        "any",
+        "1k",
+        "10k"
+      ],
+      "type": "string",
+      "description": "Filter by client historical spend. 'any' = no filter, '1k' = $1K+, '10k' = $10K+ (serious clients).",
+      "default": "any"
+    },
+    "cookies": {
+      "title": "Optional Upwork session cookies",
+      "type": "string",
+      "description": "Optional. Provide your own Upwork session cookies as a JSON array of {\"name\",\"value\"} objects for this run only. They are forwarded to the managed authenticated provider and are never written to the dataset, OUTPUT, RUN_SUMMARY, or logs. Leave empty to use the default managed account-backed route."
+    }
+  }
+}

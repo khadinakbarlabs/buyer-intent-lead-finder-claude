@@ -1,0 +1,16 @@
+.DS_Store
+Thumbs.db
+desktop.ini
+__MACOSX/
+node_modules/
+.env
+.env.*
+.apify/
+.claude/
+work/
+results/
+private/
+*.log
+*.zip
+*.pem
+*.key

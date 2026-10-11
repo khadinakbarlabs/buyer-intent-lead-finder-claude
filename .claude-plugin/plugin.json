@@ -1,0 +1,19 @@
+{
+  "name": "buyer-intent-lead-finder",
+  "displayName": "Buyer Intent Lead Finder",
+  "version": "1.0.0",
+  "description": "Find and qualify buying requests across Reddit, X, LinkedIn and Upwork. Build a source-linked shortlist and draft relevant replies using your Apify CLI.",
+  "author": {
+    "name": "Khadin Akbar",
+    "url": "https://github.com/khadinakbarlabs"
+  },
+  "homepage": "https://github.com/khadinakbarlabs/buyer-intent-lead-finder-claude#readme",
+  "repository": "https://github.com/khadinakbarlabs/buyer-intent-lead-finder-claude",
+  "license": "MIT",
+  "keywords": ["buyer-intent", "lead-generation", "sales", "prospecting", "apify"],
+  "icon": "./assets/icon.png",
+  "documentationUrl": "https://github.com/khadinakbarlabs/buyer-intent-lead-finder-claude#readme",
+  "supportUrl": "https://github.com/khadinakbarlabs/buyer-intent-lead-finder-claude/issues",
+  "privacyPolicyUrl": "https://github.com/khadinakbarlabs/buyer-intent-lead-finder-claude/blob/main/PRIVACY.md",
+  "termsOfServiceUrl": "https://github.com/khadinakbarlabs/buyer-intent-lead-finder-claude/blob/main/TERMS.md"
+}

@@ -1,0 +1,114 @@
+{
+  "verifiedOn": "2026-10-11",
+  "note": "Dated public schema and pricing snapshot; refresh before every paid plan. Null flags mean unavailable, not false. No new run was started.",
+  "actors": [
+    {
+      "source": "reddit",
+      "actor": "khadinakbar/reddit-posts-search-scraper",
+      "actorId": "hvkaKLQvHrNYLqmgZ",
+      "verifiedOn": "2026-10-11",
+      "buildId": "sMlUVl1QPxO6O8fab",
+      "buildNumber": "0.1.6",
+      "inputSchema": "schemas/reddit-posts-search-scraper.json",
+      "pricing": {
+        "startedAt": "2026-09-10T13:05:06.748Z",
+        "pricingModel": "PAY_PER_EVENT",
+        "isPPEPlatformUsagePaidByUser": null,
+        "minimalMaxTotalChargeUsd": null,
+        "events": {
+          "post-scraped": {
+            "eventPriceUsd": 0.002,
+            "isOneTimeEvent": false,
+            "isPrimaryEvent": true
+          },
+          "apify-actor-start": {
+            "eventPriceUsd": 5e-05,
+            "isOneTimeEvent": true,
+            "isPrimaryEvent": null
+          }
+        }
+      }
+    },
+    {
+      "source": "x",
+      "actor": "khadinakbar/x-twitter-search-scraper",
+      "actorId": "6xhgv9qnX0z36Btrv",
+      "verifiedOn": "2026-10-11",
+      "buildId": "pZ39e8acQKkBii6H5",
+      "buildNumber": "1.1.4",
+      "inputSchema": "schemas/x-twitter-search-scraper.json",
+      "pricing": {
+        "startedAt": "2026-09-25T10:38:15.777Z",
+        "pricingModel": "PAY_PER_EVENT",
+        "isPPEPlatformUsagePaidByUser": null,
+        "minimalMaxTotalChargeUsd": null,
+        "events": {
+          "x-search-result": {
+            "eventPriceUsd": 0.003,
+            "isOneTimeEvent": false,
+            "isPrimaryEvent": true
+          },
+          "apify-actor-start": {
+            "eventPriceUsd": 5e-05,
+            "isOneTimeEvent": true,
+            "isPrimaryEvent": null
+          }
+        }
+      }
+    },
+    {
+      "source": "linkedin",
+      "actor": "khadinakbar/linkedin-post-search-scraper",
+      "actorId": "yMNWUCINasvKFmMED",
+      "verifiedOn": "2026-10-11",
+      "buildId": "aAGw0s76JbqJnDzJ7",
+      "buildNumber": "1.0.11",
+      "inputSchema": "schemas/linkedin-post-search-scraper.json",
+      "pricing": {
+        "startedAt": "2026-09-10T13:16:05.918Z",
+        "pricingModel": "PAY_PER_EVENT",
+        "isPPEPlatformUsagePaidByUser": null,
+        "minimalMaxTotalChargeUsd": null,
+        "events": {
+          "post-found": {
+            "eventPriceUsd": 0.005,
+            "isOneTimeEvent": false,
+            "isPrimaryEvent": true
+          },
+          "apify-actor-start": {
+            "eventPriceUsd": 5e-05,
+            "isOneTimeEvent": true,
+            "isPrimaryEvent": null
+          }
+        }
+      }
+    },
+    {
+      "source": "upwork",
+      "actor": "khadinakbar/upwork-job-scraper",
+      "actorId": "qbfi3XcSM5ySFGkvq",
+      "verifiedOn": "2026-10-11",
+      "buildId": "OaXif0haYgfjqRrsY",
+      "buildNumber": "1.2.4",
+      "inputSchema": "schemas/upwork-job-scraper.json",
+      "pricing": {
+        "startedAt": "2026-09-17T13:10:41.530Z",
+        "pricingModel": "PAY_PER_EVENT",
+        "isPPEPlatformUsagePaidByUser": true,
+        "minimalMaxTotalChargeUsd": null,
+        "events": {
+          "apify-actor-start": {
+            "eventPriceUsd": 5e-05,
+            "isOneTimeEvent": true,
+            "isPrimaryEvent": null
+          },
+          "job-found": {
+            "eventPriceUsd": 0.035,
+            "isOneTimeEvent": null,
+            "isPrimaryEvent": true
+          }
+        }
+      }
+    }
+  ]
+}

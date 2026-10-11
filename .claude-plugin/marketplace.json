@@ -1,0 +1,16 @@
+{
+  "name": "khadin-buyer-intent",
+  "owner": { "name": "Khadin Akbar" },
+  "metadata": { "description": "Buyer Intent Lead Finder for Claude Code", "version": "1.0.0" },
+  "plugins": [
+    {
+      "name": "buyer-intent-lead-finder",
+      "source": "./",
+      "description": "Qualify purchase requests and build evidence-linked lead shortlists using the official Apify CLI.",
+      "version": "1.0.0",
+      "author": { "name": "Khadin Akbar" },
+      "license": "MIT",
+      "category": "productivity"
+    }
+  ]
+}

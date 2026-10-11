@@ -1,0 +1,9 @@
+{
+  "queries": ["looking for Shopify developer", "recommend Shopify migration agency"],
+  "subreddits": [],
+  "sort": "new",
+  "timeRange": "month",
+  "maxPosts": 25,
+  "includeTopComments": false,
+  "includeNsfw": false
+}

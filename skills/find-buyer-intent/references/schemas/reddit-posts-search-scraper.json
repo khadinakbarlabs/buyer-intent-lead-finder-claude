@@ -1,0 +1,105 @@
+{
+  "type": "object",
+  "required": [
+    "queries"
+  ],
+  "properties": {
+    "queries": {
+      "title": "Search queries",
+      "type": "array",
+      "description": "Keywords, phrases, brands, competitors, products, pain points, or natural-language topics to search on Reddit. AI agents should put the main user request here.",
+      "items": {
+        "type": "string"
+      }
+    },
+    "subreddits": {
+      "title": "Limit to subreddits (optional)",
+      "type": "array",
+      "description": "Optional subreddit names or URLs. Leave empty for global Reddit search. When set, every query is searched inside each subreddit. Accepts r/SEO, SEO, or https://www.reddit.com/r/SEO.",
+      "items": {
+        "type": "string"
+      }
+    },
+    "sort": {
+      "title": "Search sort",
+      "enum": [
+        "relevance",
+        "new",
+        "top",
+        "comments",
+        "hot"
+      ],
+      "type": "string",
+      "description": "How Reddit orders matching posts. Relevance is best for research and AI agents, new is best for monitoring, top is best for high-signal historical posts, comments finds active discussions, and hot finds currently trending matches.",
+      "default": "relevance"
+    },
+    "timeRange": {
+      "title": "Time range",
+      "enum": [
+        "hour",
+        "day",
+        "week",
+        "month",
+        "year",
+        "all"
+      ],
+      "type": "string",
+      "description": "Time window for search results. Use week or month for current market research, year or all for evergreen SEO research.",
+      "default": "month"
+    },
+    "maxPosts": {
+      "title": "Max posts",
+      "minimum": 1,
+      "maximum": 200000,
+      "type": "integer",
+      "description": "Maximum number of unique post records to return across all queries and subreddits. Billing stops when this cap is reached.",
+      "default": 100
+    },
+    "includeTopComments": {
+      "title": "Include top comment previews",
+      "type": "boolean",
+      "description": "When true, each post record includes a compact topComments array. Use this for AI summaries and sentiment analysis. Leave off for faster, cheaper post-only extraction.",
+      "default": false
+    },
+    "maxTopCommentsPerPost": {
+      "title": "Max top comments per post",
+      "minimum": 1,
+      "maximum": 100,
+      "type": "integer",
+      "description": "Maximum number of top comments to embed in each post when includeTopComments is enabled.",
+      "default": 5
+    },
+    "postDateLimit": {
+      "title": "Ignore posts older than",
+      "type": "string",
+      "description": "Optional ISO date. Example: 2026-01-01. Posts older than this are skipped after retrieval."
+    },
+    "includeNsfw": {
+      "title": "Include NSFW posts",
+      "type": "boolean",
+      "description": "Disabled by default for business research and AI-agent workflows. Enable only when you intentionally need NSFW Reddit content.",
+      "default": false
+    },
+    "proxy": {
+      "title": "Proxy configuration",
+      "type": "object",
+      "description": "Proxy settings. Defaults to Apify Residential proxies because Reddit often blocks datacenter IPs. Leave unchanged unless you know your target and plan requirements.",
+      "default": {
+        "useApifyProxy": true,
+        "apifyProxyGroups": [
+          "RESIDENTIAL"
+        ]
+      }
+    },
+    "redditClientId": {
+      "title": "Reddit client ID (optional)",
+      "type": "string",
+      "description": "Optional Reddit app client ID. Leave blank to use owner-managed access when configured. Create a free app at reddit.com/prefs/apps if you want to use your own credentials."
+    },
+    "redditClientSecret": {
+      "title": "Reddit client secret (optional)",
+      "type": "string",
+      "description": "Optional Reddit app client secret paired with redditClientId. This is not your Reddit password."
+    }
+  }
+}

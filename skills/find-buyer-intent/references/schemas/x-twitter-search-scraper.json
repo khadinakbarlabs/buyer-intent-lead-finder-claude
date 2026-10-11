@@ -1,0 +1,65 @@
+{
+  "type": "object",
+  "required": [
+    "queries"
+  ],
+  "properties": {
+    "queries": {
+      "title": "Search queries",
+      "minItems": 1,
+      "maxItems": 50,
+      "type": "array",
+      "description": "X/Twitter search queries, hashtags, usernames, or advanced operators. Examples: ai agents, #buildinpublic, from:openai min_faves:100, (marketing OR sales) lang:en.",
+      "items": {
+        "type": "string"
+      }
+    },
+    "searchType": {
+      "title": "Search type",
+      "enum": [
+        "Top",
+        "Latest",
+        "People",
+        "Photos",
+        "Media"
+      ],
+      "type": "string",
+      "description": "Which X search tab to scrape. Top and Latest return tweet-like results. People returns account-like results. Photos and Media return media-heavy results.",
+      "default": "Latest"
+    },
+    "maxResults": {
+      "title": "Maximum results",
+      "minimum": 1,
+      "maximum": 5000,
+      "type": "integer",
+      "description": "Maximum dataset records to save across all queries. This is also the hard cap for billable result events.",
+      "default": 100
+    },
+    "maxPagesPerQuery": {
+      "title": "Maximum pages per query",
+      "minimum": 1,
+      "maximum": 100,
+      "type": "integer",
+      "description": "Advanced pagination safety valve. Lower this for quick tests; increase it for deeper searches when the provider returns a next cursor.",
+      "default": 10
+    },
+    "startCursor": {
+      "title": "Start cursor",
+      "maxLength": 500,
+      "type": "string",
+      "description": "Optional provider cursor from a previous run. Use this only when continuing one query/search type from RUN_SUMMARY.nextCursors."
+    },
+    "includeRaw": {
+      "title": "Include raw provider payload",
+      "type": "boolean",
+      "description": "Attach the raw provider item to each dataset record for debugging field drift. Leave disabled for smaller production datasets.",
+      "default": false
+    },
+    "dedupeResults": {
+      "title": "Dedupe results",
+      "type": "boolean",
+      "description": "Skip duplicate tweet/account/list records across pages and queries.",
+      "default": true
+    }
+  }
+}

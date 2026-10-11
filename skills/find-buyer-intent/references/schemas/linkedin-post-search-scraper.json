@@ -1,0 +1,67 @@
+{
+  "type": "object",
+  "required": [
+    "query"
+  ],
+  "properties": {
+    "query": {
+      "title": "Search query",
+      "minLength": 2,
+      "maxLength": 200,
+      "type": "string",
+      "description": "Keyword or phrase to search for in public LinkedIn posts. The actor uses Google-indexed LinkedIn post results via the primary managed public-data route, so results are best-effort and depend on public indexing. Use a focused phrase such as a company name, topic, product category, or exact quote for cleaner matches."
+    },
+    "datePosted": {
+      "title": "Date posted",
+      "enum": [
+        "any",
+        "last-hour",
+        "last-day",
+        "last-week",
+        "last-month",
+        "last-year"
+      ],
+      "type": "string",
+      "description": "Optional freshness filter applied by the upstream provider to Google-indexed LinkedIn results. Recent windows can be sparse because the provider can only return public posts that Google has indexed. Use last-week or last-month for the best balance of freshness and coverage.",
+      "default": "last-week"
+    },
+    "maxResults": {
+      "title": "Maximum posts",
+      "minimum": 1,
+      "maximum": 500,
+      "type": "integer",
+      "description": "Maximum number of post records to save to the dataset. This is also the hard cap for billable post-found events. Higher values may require multiple provider pages because the primary managed public-data route returns paginated results.",
+      "default": 50
+    },
+    "maxProviderPages": {
+      "title": "Maximum provider pages",
+      "minimum": 1,
+      "maximum": 60,
+      "type": "integer",
+      "description": "Advanced safety valve for pagination. Leave at 60 for normal runs. Lower this when you are testing, debugging cursor behavior, or intentionally limiting upstream provider calls.",
+      "default": 60
+    },
+    "startCursor": {
+      "title": "Start cursor",
+      "maxLength": 200,
+      "type": "string",
+      "description": "Optional cursor returned by a previous run. Paste the value from the run summary to continue from a later provider page. Leave empty for the first page of results."
+    },
+    "includeComments": {
+      "title": "Include public comments",
+      "type": "boolean",
+      "description": "Include the public comments returned by the provider in each dataset record. Disable this for smaller records when you only need post-level metadata and engagement counts.",
+      "default": true
+    },
+    "outputMode": {
+      "title": "Output mode",
+      "enum": [
+        "full",
+        "compact"
+      ],
+      "type": "string",
+      "description": "Compact mode keeps the most common fields for quick monitoring and LLM workflows. Full mode also includes images, media URLs, provider cursor context, and comments when enabled.",
+      "default": "full"
+    }
+  }
+}

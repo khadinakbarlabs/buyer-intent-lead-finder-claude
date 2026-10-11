@@ -1,0 +1,8 @@
+{
+  "queries": ["\"looking for\" \"Shopify developer\" lang:en", "\"recommend\" \"Shopify agency\" lang:en"],
+  "searchType": "Latest",
+  "maxResults": 25,
+  "maxPagesPerQuery": 2,
+  "includeRaw": false,
+  "dedupeResults": true
+}

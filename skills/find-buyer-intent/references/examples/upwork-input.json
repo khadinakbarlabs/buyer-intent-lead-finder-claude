@@ -1,0 +1,10 @@
+{
+  "searchQueries": ["Shopify migration"],
+  "maxResults": 10,
+  "maxPagesPerQuery": 1,
+  "sortBy": "recency",
+  "jobType": "all",
+  "experienceLevel": "all",
+  "paymentVerified": false,
+  "minClientSpend": "any"
+}
